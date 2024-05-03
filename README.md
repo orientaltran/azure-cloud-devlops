@@ -1,6 +1,7 @@
 # Overview
 
 ![oulinr](./screenshots/overview.png)
+
 In this project, you will build a Github repository from scratch and create a scaffolding that will assist you in performing both Continuous Integration and Continuous Delivery. You'll use Github Actions along with a Makefile, requirements.txt and application code to perform an initial lint, test, and install cycle. Next, you'll integrate this project with Azure Pipelines to enable Continuous Delivery to Azure App Service.
 
 ## Project Plan
@@ -31,54 +32,76 @@ In this project, you will build a Github repository from scratch and create a sc
      ```bash
      cd azure-cloud-devlops
      ```
-   - Run make file to install dependencies
+   - Create a virtual environment:
      ```bash
-     make install
+     make setup
+      ```
+   - Activate the virtual environment:
+     ```bash
+     source ~/.udacity-devops/bin/activate
      ```
 
+   - Install dependencies in the virtual environment and run tests:
+     ```bash
+     make all
+     ```
+     ![makeall](./screenshots/makeall.png)
+
+* Start the application in the local environment:
+     ```shell
+     export FLASK_APP=app.py
+     ```
+
+     ```shell
+     flask run &
+     ```
+    Open a separate Cloud Shell and test that the app is working:
+    ![makepredic](./screenshots/makepredic5000.png)
+
+### Deploy the app to an Azure App Service
+
+* Create an App Service in Azure. In this example the App Service is called `flaskmlapp`:
+
+     ```shell
+     az webapp up --sku F1 -n flaskmlapp -g odl_user_256498_rg_5049
+     ```
+
+     ![app](./screenshots/app.png)
+
+* Screenshot of a successful run of the project in Azure Pipelines:
+
+     ![pepline](./screenshots/pepline.png)
+
+* Run `make_predict_azure_app.sh` script with the host name of your app. Then run the script:
+
+     ```shell
+     ./make_predict_azure_app.sh 
+     ```
+
+     ![predict443](./screenshots/predict443.png)
+
+* You can also visit the URL of the App Service via the browser and you should see the following page:
+
+     ![predict443](./screenshots/url.png)
+
+* View the app logs:
+
+     ```shell
+     az webapp log tail -g odl_user_256498_rg_5049 --name flaskmlapp
+     ```
+
+     ![log](./screenshots/log.png)
+
 * Run Locust Test
+    
+    - We can use locust to do a load test against our application. 
 
-1. Goto the project directory
-2. Run the script
+     ```shell
+     pip install locust
+     ```
 
-   ```bash
-   locust
-   ```
+     ```shell
+     locust -f locustfile.py
+     ```
 
-3. Access link: http://0.0.0.0:8089
-4. Run and check report
-
-* Project running on Azure App Service
-
-* Project cloned into Azure Cloud Shell
-
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
-
-* Output of a test run
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
-
-* Output of streamed log files from deployed application
-
-> 
-
-## Enhancements
-
-<TODO: A short description of how to improve the project in the future>
-
-## Demo 
-
-<TODO: Add link Screencast on YouTube>
-
-
+     ![log](./screenshots/locust.png)
