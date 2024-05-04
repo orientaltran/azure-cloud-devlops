@@ -40,12 +40,14 @@ In this project, you will build a Github repository from scratch and create a sc
      ```bash
      source ~/.udacity-devops/bin/activate
      ```
+     ![make setup](./screenshots/make_setup.png)
 
    - Install dependencies in the virtual environment and run tests:
      ```bash
      make all
      ```
-     ![makeall](./screenshots/makeall.png)
+     ![makeall](./screenshots/make_all.png)
+     ![makeall](./screenshots/make_all_2.png)
 
 * Start the application in the local environment:
      ```shell
@@ -56,17 +58,17 @@ In this project, you will build a Github repository from scratch and create a sc
      flask run &
      ```
     Open a separate Cloud Shell and test that the app is working:
-    ![makepredic](./screenshots/makepredic5000.png)
+    ![makepredic](./screenshots/make_prediction.png)
 
 ### Deploy the app to an Azure App Service
 
 * Create an App Service in Azure. In this example the App Service is called `flaskmlapp`:
 
      ```shell
-     az webapp up --sku F1 -n flaskmlapp -g odl_user_256498_rg_5049
+     az webapp up --sku F1 -n flaskmlapp -g Azuredevops
      ```
 
-     ![app](./screenshots/app.png)
+     ![app](./screenshots/webapp.png)
 
 * Screenshot of a successful run of the project in Azure Pipelines:
 

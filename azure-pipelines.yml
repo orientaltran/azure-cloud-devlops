@@ -9,7 +9,7 @@ trigger:
 pool: myPool
 
 variables:
-  azureServiceConnectionId: 'fa02fe48-60d1-418e-a283-7687ab989dcd'
+  azureServiceConnectionId: '0407f789-995a-43ee-a0db-0b1defcd6ba7'
   webAppName: 'flaskmlapp'
   environmentName: 'rob-udacity-webapp'
   projectRoot: $(System.DefaultWorkingDirectory)
