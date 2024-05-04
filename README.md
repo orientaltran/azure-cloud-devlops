@@ -72,7 +72,7 @@ In this project, you will build a Github repository from scratch and create a sc
 
 * Screenshot of a successful run of the project in Azure Pipelines:
 
-     ![pepline](./screenshots/pepline.png)
+     ![pepline](./screenshots/pipeLines.png)
 
 * Run `make_predict_azure_app.sh` script with the host name of your app. Then run the script:
 
@@ -80,19 +80,19 @@ In this project, you will build a Github repository from scratch and create a sc
      ./make_predict_azure_app.sh 
      ```
 
-     ![predict443](./screenshots/predict443.png)
+     ![predict443](./screenshots/make433.png)
 
 * You can also visit the URL of the App Service via the browser and you should see the following page:
 
-     ![predict443](./screenshots/url.png)
+     ![predict443](./screenshots/website.png)
 
 * View the app logs:
 
      ```shell
-     az webapp log tail -g odl_user_256498_rg_5049 --name flaskmlapp
+     az webapp log tail -g Azuredevops --name flaskmlapp
      ```
 
-     ![log](./screenshots/log.png)
+     ![log](./screenshots/logs.png)
 
 * Run Locust Test
     
