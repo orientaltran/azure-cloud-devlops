@@ -8,7 +8,7 @@ In this project, you will build a Github repository from scratch and create a sc
 * Trello board: [Trello Board](https://trello.com/b/ZmXCqD4B/udacity-project-02)
 * Project plan spreadsheet: [Project Plan](https://docs.google.com/spreadsheets/d/1ttoCh0Rcr2TrOr6ikpj6ZwxgfZ0UGhSptB6PCeKvsDM/edit#gid=0)
 
-* For a visual demonstration of the project, please refer to this [YouTube video](https://youtu.be/VHWoUAYeJZ0).
+* For a visual demonstration of the project, please refer to this [YouTube video](https://youtu.be/G4Hc1VWK4NI).
 
 ## Instructions
 
