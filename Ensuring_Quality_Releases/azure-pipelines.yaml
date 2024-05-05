@@ -1,7 +1,7 @@
 name: Azure Pipelines
 
 trigger:
-- develop
+- main
 pool: myPool
 
 variables:
